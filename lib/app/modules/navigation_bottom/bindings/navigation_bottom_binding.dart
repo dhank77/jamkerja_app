@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:jamkerja/app/modules/home/controllers/home_controller.dart';
 import 'package:jamkerja/app/modules/pengumuman/controllers/pengumuman_controller.dart';
+import 'package:jamkerja/app/modules/presensi_free/controllers/presensi_free_controller.dart';
 import 'package:jamkerja/app/modules/presensi_laporan/controllers/presensi_laporan_controller.dart';
 import 'package:jamkerja/app/modules/profil/controllers/profil_controller.dart';
 
@@ -23,6 +24,9 @@ class NavigationBottomBinding extends Bindings {
     );
     Get.lazyPut<ProfilController>(
       () => ProfilController(),
+    );
+    Get.lazyPut<PresensiFreeController>(
+      () => PresensiFreeController(),
     );
   }
 }
