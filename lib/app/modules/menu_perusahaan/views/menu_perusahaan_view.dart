@@ -38,7 +38,7 @@ class MenuPerusahaanView extends GetView<MenuPerusahaanController> {
                                                 ['logo'],
                                             placeholder: (context, url) =>
                                                 const CircularProgressIndicator(
-                                              color: Colors.amber,
+                                              color: Colors.blue,
                                             ),
                                             errorWidget:
                                                 (context, url, error) =>
@@ -74,7 +74,7 @@ class MenuPerusahaanView extends GetView<MenuPerusahaanController> {
                                   begin: Alignment.topRight,
                                   end: Alignment.bottomLeft,
                                   colors: [
-                                    Colors.amber.withOpacity(0.5),
+                                    Colors.blue.withOpacity(0.5),
                                     Colors.white70
                                   ],
                                 ),

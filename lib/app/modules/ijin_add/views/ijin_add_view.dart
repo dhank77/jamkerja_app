@@ -20,7 +20,7 @@ class IjinAddView extends GetView<IjinAddController> {
       appBar: const AppBarCustom(),
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.amber[50],
+          color: Colors.blue[50],
           child: Column(
             children: [
               const SizedBox(
@@ -74,7 +74,7 @@ class IjinAddView extends GetView<IjinAddController> {
                               const Text(
                                 "Pilih Gambar",
                                 style: TextStyle(
-                                  color: Colors.amber,
+                                  color: Colors.blue,
                                 ),
                               ),
                               Container(

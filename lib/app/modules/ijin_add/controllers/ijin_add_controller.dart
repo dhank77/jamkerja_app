@@ -33,12 +33,12 @@ class IjinAddController extends GetxController {
         return Theme(
           data: ThemeData.light().copyWith(
             colorScheme: const ColorScheme.light(
-              primary: Colors.amber,
+              primary: Colors.blue,
               onSurface: Colors.black,
             ),
             buttonTheme: const ButtonThemeData(
               colorScheme: ColorScheme.light(
-                primary: Colors.amber,
+                primary: Colors.blue,
               ),
             ),
           ),
@@ -67,12 +67,12 @@ class IjinAddController extends GetxController {
         return Theme(
           data: ThemeData.light().copyWith(
             colorScheme: const ColorScheme.light(
-              primary: Colors.amber,
+              primary: Colors.blue,
               onSurface: Colors.black,
             ),
             buttonTheme: const ButtonThemeData(
               colorScheme: ColorScheme.light(
-                primary: Colors.amber,
+                primary: Colors.blue,
               ),
             ),
           ),

@@ -22,7 +22,7 @@ class FormDate extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.amber, width: 0.2),
+        border: Border.all(color: Colors.blue, width: 0.2),
         boxShadow: const [
           BoxShadow(
             color: Colors.grey,
@@ -52,7 +52,7 @@ class FormDate extends StatelessWidget {
                 ),
                 labelText: label,
                 border: InputBorder.none,
-                fillColor: Colors.amber,
+                fillColor: Colors.blue,
               ),
               initialValue: init,
               onShowPicker: (context, currentValue) {
@@ -61,14 +61,14 @@ class FormDate extends StatelessWidget {
                     return Theme(
                       data: ThemeData(
                         primarySwatch: Colors.grey,
-                        splashColor: Colors.amber,
+                        splashColor: Colors.blue,
                         textTheme: const TextTheme(
-                          subtitle1: TextStyle(color: Colors.amber),
-                          button: TextStyle(color: Colors.amber),
+                          subtitle1: TextStyle(color: Colors.blue),
+                          button: TextStyle(color: Colors.blue),
                         ),
                         colorScheme: const ColorScheme.light(
-                          primary: Colors.amber,
-                          onSecondary: Colors.amber,
+                          primary: Colors.blue,
+                          onSecondary: Colors.blue,
                           onPrimary: Colors.white,
                           surface: Colors.black,
                           onSurface: Colors.black,

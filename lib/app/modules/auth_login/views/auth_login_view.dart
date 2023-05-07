@@ -18,7 +18,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
             child: Container(
               height: 250,
               width: Get.width,
-              color: Colors.amber[100],
+              color: Colors.blue[100],
             ),
           ),
           Container(
@@ -27,8 +27,8 @@ class AuthLoginView extends GetView<AuthLoginController> {
               children: [
                 const SizedBox(height: 50),
                 SizedBox(
-                  width: 50,
-                  height: 50,
+                  width: 75,
+                  height: 75,
                   child: Image.asset("assets/images/logo.png"),
                 ),
                 const Text(
@@ -49,7 +49,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  "No Pegawai / Email",
+                  "Email",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                   autocorrect: false,
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: "Masukkan No Pegawai / Email",
+                    hintText: "Masukkan Email",
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -88,7 +88,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                         icon: Icon(Icons.remove_red_eye,
                             color: controller.hide.isTrue
                                 ? Colors.black45
-                                : Colors.amber),
+                                : Colors.blue),
                       ),
                     ),
                   ),
@@ -155,7 +155,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                   onPressed: () =>
                       controller.animate.isFalse ? controller.login() : null,
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.amber[300],
+                    primary: Colors.blue[300],
                     fixedSize: const Size(150, 50),
                   ),
                   child: Obx(

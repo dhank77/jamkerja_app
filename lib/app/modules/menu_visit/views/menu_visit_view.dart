@@ -14,7 +14,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.amber[50],
+        color: Colors.blue[50],
         padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         child: Obx(
           () => controller.isDataProcessing.isFalse
@@ -34,7 +34,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
                                 'Kunjungan Lokasi',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.amberAccent[500],
+                                  color: Colors.blueAccent[500],
                                   fontWeight: FontWeight.bold,
                                   decoration: TextDecoration.underline,
                                 ),
@@ -49,7 +49,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
                                   child: const Icon(
                                     Icons.add,
                                     size: 28,
-                                    color: Colors.amber,
+                                    color: Colors.blue,
                                   ),
                                 ),
                                 const Text(
@@ -80,20 +80,20 @@ class MenuVisitView extends GetView<MenuVisitController> {
                                       return Theme(
                                         data: ThemeData(
                                           primarySwatch: Colors.grey,
-                                          splashColor: Colors.amber,
+                                          splashColor: Colors.blue,
                                           textTheme: const TextTheme(
                                             subtitle1:
-                                                TextStyle(color: Colors.amber),
+                                                TextStyle(color: Colors.blue),
                                             button:
-                                                TextStyle(color: Colors.amber),
+                                                TextStyle(color: Colors.blue),
                                           ),
                                           colorScheme: const ColorScheme.light(
-                                              primary: Colors.amber,
-                                              onSecondary: Colors.amber,
+                                              primary: Colors.blue,
+                                              onSecondary: Colors.blue,
                                               onPrimary: Colors.white,
-                                              surface: Colors.amber,
-                                              onSurface: Colors.amber,
-                                              secondary: Colors.amber),
+                                              surface: Colors.blue,
+                                              onSurface: Colors.blue,
+                                              secondary: Colors.blue),
                                           dialogBackgroundColor: Colors.white,
                                         ),
                                         child: child ?? Text(""),
@@ -134,7 +134,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
                                       children: [
                                         Icon(
                                           Icons.calendar_today,
-                                          color: Colors.amber,
+                                          color: Colors.blue,
                                         ),
                                         SizedBox(
                                           width: 10,
@@ -193,7 +193,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
                                               children: [
                                                 Expanded(
                                                   child: Container(
-                                                    color: Colors.amber[100],
+                                                    color: Colors.blue[100],
                                                     child: Column(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment
@@ -246,7 +246,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
                                                 ),
                                                 Container(
                                                   width: 100,
-                                                  color: Colors.amber[100],
+                                                  color: Colors.blue[100],
                                                   child: Image.network(
                                                       controller.listData[index]
                                                           ['foto']),
@@ -269,7 +269,7 @@ class MenuVisitView extends GetView<MenuVisitController> {
                 )
               : const Center(
                   child: CircularProgressIndicator(
-                    color: Colors.amber,
+                    color: Colors.blue,
                   ),
                 ),
         ),

@@ -102,7 +102,7 @@ class JamKerjaView extends GetView<JamKerjaController> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(50),
-                                            color: Colors.amber,
+                                            color: Colors.blue,
                                           ),
                                           padding: const EdgeInsets.all(8),
                                         ),
@@ -120,7 +120,7 @@ class JamKerjaView extends GetView<JamKerjaController> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(50),
-                                            color: Colors.amber,
+                                            color: Colors.blue,
                                           ),
                                           padding: const EdgeInsets.all(8),
                                         ),

@@ -9,7 +9,7 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.amber[600],
+      backgroundColor: Colors.blue[600],
       elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +17,7 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
           SizedBox(
             width: 30,
             height: 30,
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset("assets/images/logo-white.png"),
           ),
           const Text(
             ' JamKerja.ID',

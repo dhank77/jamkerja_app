@@ -17,7 +17,7 @@ class LemburDetailView extends GetView<LemburDetailController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.amber[50],
+        color: Colors.blue[50],
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [

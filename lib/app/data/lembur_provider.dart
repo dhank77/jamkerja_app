@@ -20,7 +20,7 @@ class LemburProvider extends GetConnect {
       'file': image,
     };
 
-    return post(BASEAPI + 'pengajuan/lembur/store', body, headers: {
+    return post('${BASEAPI}pengajuan/lembur/store', body, headers: {
       'Accept': 'application/json',
       'Authorization': "Bearer $token"
     });

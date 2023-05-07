@@ -22,7 +22,7 @@ class FormTime extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.amber, width: 0.2),
+          border: Border.all(color: Colors.blue, width: 0.2),
           boxShadow: const [
             BoxShadow(color: Colors.grey, blurRadius: 3, offset: Offset(1, 1)),
           ],

@@ -45,6 +45,7 @@ class AuthLoginController extends GetxController {
               final data = value.body;
               final box = GetStorage();
               box.write('dataUser', {
+                'kode_perusahaan': data['user']['kode_perusahaan'].toString(),
                 'name': data['user']['name'].toString(),
                 'no_hp': data['user']['no_hp'].toString(),
                 'email': data['user']['email'].toString(),
@@ -87,10 +88,10 @@ class AuthLoginController extends GetxController {
   void onInit() {
     initOneSignal();
     getImei();
-    email = TextEditingController();
-    password = TextEditingController();
-    // email = TextEditingController(text: '002');
-    // password = TextEditingController(text: '002');
+    // email = TextEditingController();
+    // password = TextEditingController();
+    email = TextEditingController(text: 'hocamu@mailinator.com');
+    password = TextEditingController(text: 'hocamu@mailinator.com');
     super.onInit();
   }
 

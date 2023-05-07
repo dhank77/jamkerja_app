@@ -15,7 +15,7 @@ class ReimbursementAddView extends GetView<ReimbursementAddController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.amber[50],
+        color: Colors.blue[50],
         child: Column(
           children: [
             const SizedBox(

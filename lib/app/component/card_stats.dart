@@ -27,7 +27,7 @@ class CardStats extends StatelessWidget {
                 leading: Icon(
                   icon,
                   size: 40,
-                  color: Colors.amber,
+                  color: Colors.blue,
                 ),
                 title: Text(
                   title,

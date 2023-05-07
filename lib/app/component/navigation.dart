@@ -27,7 +27,7 @@ class NavigationPage extends StatelessWidget {
             child: Icon(
               icon,
               size: 25,
-              color: status == true ? Colors.amber[800] : Colors.grey,
+              color: status == true ? Colors.blue[800] : Colors.grey,
             ),
           ),
           SizedBox(height: 5),
@@ -35,7 +35,7 @@ class NavigationPage extends StatelessWidget {
             title,
             style: TextStyle(
               fontSize: 12,
-              color: (status == true) ? Colors.amber[800] : Colors.grey,
+              color: (status == true) ? Colors.blue[800] : Colors.grey,
             ),
           ),
         ],

@@ -23,7 +23,7 @@ class NavBarBor extends StatelessWidget {
           ),
         ),
       ),
-      // color: Colors.amber,
+      // color: Colors.blue,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

@@ -31,18 +31,18 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                           return Theme(
                             data: ThemeData(
                               primarySwatch: Colors.grey,
-                              splashColor: Colors.amber,
+                              splashColor: Colors.blue,
                               textTheme: const TextTheme(
-                                subtitle1: TextStyle(color: Colors.amber),
-                                button: TextStyle(color: Colors.amber),
+                                subtitle1: TextStyle(color: Colors.blue),
+                                button: TextStyle(color: Colors.blue),
                               ),
                               colorScheme: const ColorScheme.light(
-                                  primary: Colors.amber,
-                                  onSecondary: Colors.amber,
+                                  primary: Colors.blue,
+                                  onSecondary: Colors.blue,
                                   onPrimary: Colors.white,
-                                  surface: Colors.amber,
-                                  onSurface: Colors.amber,
-                                  secondary: Colors.amber),
+                                  surface: Colors.blue,
+                                  onSurface: Colors.blue,
+                                  secondary: Colors.blue),
                               dialogBackgroundColor: Colors.white,
                             ),
                             child: child ?? Text(""),
@@ -76,7 +76,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                         children: [
                           const Icon(
                             Icons.calendar_today,
-                            color: Colors.amber,
+                            color: Colors.blue,
                           ),
                           const SizedBox(
                             width: 10,
@@ -129,7 +129,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                 //     children: [
                                 //       Expanded(
                                 //         child: Container(
-                                //           color: Colors.amber[50],
+                                //           color: Colors.blue[50],
                                 //           child: Column(
                                 //             mainAxisAlignment:
                                 //                 MainAxisAlignment.center,
@@ -158,7 +158,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                 //         color: Colors.white,
                                 //       ),
                                 //       Container(
-                                //         color: Colors.amber[50],
+                                //         color: Colors.blue[50],
                                 //         width: 50,
                                 //         child: Column(
                                 //           mainAxisAlignment:
@@ -197,7 +197,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                 //       ),
                                 //       Expanded(
                                 //         child: Container(
-                                //           color: Colors.amber[50],
+                                //           color: Colors.blue[50],
                                 //           child: Column(
                                 //             mainAxisAlignment:
                                 //                 MainAxisAlignment.center,
@@ -233,7 +233,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                     children: [
                                       Container(
                                         width: 160,
-                                        color: Colors.amber[50],
+                                        color: Colors.blue[50],
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -272,7 +272,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                       ),
                                       Expanded(
                                         child: Container(
-                                          color: Colors.amber[50],
+                                          color: Colors.blue[50],
                                           child: controller.listData[index]
                                                       ['image_datang'] !=
                                                   ''
@@ -300,7 +300,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          color: Colors.amber[50],
+                                          color: Colors.blue[50],
                                           child: controller.listData[index]
                                                       ['image_pulang'] !=
                                                   ''
@@ -317,7 +317,7 @@ class PresensiLaporanView extends GetView<PresensiLaporanController> {
                                       ),
                                       Container(
                                         width: 160,
-                                        color: Colors.amber[50],
+                                        color: Colors.blue[50],
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,

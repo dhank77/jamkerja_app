@@ -28,7 +28,7 @@ class NavigationBottomView extends StatelessWidget {
           ),
           bottomNavigationBar: BottomNavigationBar(
             unselectedItemColor: Colors.grey,
-            selectedItemColor: Colors.amber[800],
+            selectedItemColor: Colors.blue[800],
             onTap: controller.changeTabIndex,
             currentIndex: controller.tabIndex,
             showSelectedLabels: true,

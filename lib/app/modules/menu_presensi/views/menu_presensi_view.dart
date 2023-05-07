@@ -13,7 +13,7 @@ class MenuPresensiView extends GetView<MenuPresensiController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.amber[50],
+        color: Colors.blue[50],
         child: Center(
           child: Column(
             children: [
@@ -24,7 +24,7 @@ class MenuPresensiView extends GetView<MenuPresensiController> {
                     child: Container(
                       height: 230,
                       width: Get.width,
-                      color: Colors.amber[600],
+                      color: Colors.blue[600],
                     ),
                   ),
                   Container(
@@ -75,7 +75,7 @@ class MenuPresensiView extends GetView<MenuPresensiController> {
                               leading: Icon(
                                 Icons.location_searching,
                                 size: 40,
-                                color: Colors.amber,
+                                color: Colors.blue,
                               ),
                               title: const Text('Data Lokasi'),
                               subtitle: Obx(
@@ -118,7 +118,7 @@ class MenuPresensiView extends GetView<MenuPresensiController> {
                             onPressed: () => controller.presensi(),
                             style: ElevatedButton.styleFrom(
                               primary: controller.shiftStatus.isTrue
-                                  ? Colors.amber[500]
+                                  ? Colors.blue[500]
                                   : Colors.grey[300],
                               fixedSize: const Size(150, 50),
                             ),
@@ -128,7 +128,7 @@ class MenuPresensiView extends GetView<MenuPresensiController> {
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               primary: controller.shiftStatus.isTrue
-                                  ? Colors.amber[500]
+                                  ? Colors.blue[500]
                                   : Colors.grey[300],
                               fixedSize: const Size(150, 50),
                             ),
@@ -141,7 +141,7 @@ class MenuPresensiView extends GetView<MenuPresensiController> {
                     onPressed: () => controller.updatePosition(),
                     child: Text("Sesuaikan Lokasi"),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.amber[500],
+                      primary: Colors.blue[500],
                       fixedSize: Size(150, 50),
                     ),
                   )

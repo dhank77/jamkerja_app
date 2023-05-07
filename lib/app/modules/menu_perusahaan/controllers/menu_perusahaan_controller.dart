@@ -8,7 +8,7 @@ class MenuPerusahaanController extends GetxController {
 
   void getData() {
     try {
-      PerusahaanProvider().getData(dataUser['access_token']).then((resp) {
+      PerusahaanProvider().getData(dataUser['access_token'], dataUser['kode_perusahaan'].toString()).then((resp) {
         perusahaan.add(resp.body['data']);
       });
     } catch (exception) {

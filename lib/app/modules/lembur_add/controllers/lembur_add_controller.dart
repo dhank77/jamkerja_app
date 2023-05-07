@@ -28,12 +28,12 @@ class LemburAddController extends GetxController {
         return Theme(
           data: ThemeData.light().copyWith(
             colorScheme: ColorScheme.light(
-              primary: Colors.amber,
+              primary: Colors.blue,
               onSurface: Colors.black,
             ),
             buttonTheme: ButtonThemeData(
               colorScheme: ColorScheme.light(
-                primary: Colors.amber,
+                primary: Colors.blue,
               ),
             ),
           ),
@@ -62,12 +62,12 @@ class LemburAddController extends GetxController {
         return Theme(
           data: ThemeData.light().copyWith(
             colorScheme: ColorScheme.light(
-              primary: Colors.amber,
+              primary: Colors.blue,
               onSurface: Colors.black,
             ),
             buttonTheme: ButtonThemeData(
               colorScheme: ColorScheme.light(
-                primary: Colors.amber,
+                primary: Colors.blue,
               ),
             ),
           ),

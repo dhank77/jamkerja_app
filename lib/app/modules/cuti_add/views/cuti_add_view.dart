@@ -18,7 +18,7 @@ class CutiAddView extends GetView<CutiAddController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.amber[50],
+        color: Colors.blue[50],
         child: Column(
           children: [
             const SizedBox(
@@ -72,7 +72,7 @@ class CutiAddView extends GetView<CutiAddController> {
                             const Text(
                               "Pilih Gambar",
                               style: TextStyle(
-                                color: Colors.amber,
+                                color: Colors.blue,
                               ),
                             ),
                             Container(

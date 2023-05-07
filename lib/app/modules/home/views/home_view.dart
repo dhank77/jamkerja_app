@@ -27,7 +27,7 @@ class HomeView extends GetView<HomeController> {
               SizedBox(
                 width: 30,
                 height: 30,
-                child: Image.asset("assets/images/logo.png"),
+                child: Image.asset("assets/images/logo-white.png"),
               ),
               const Text(
                 ' JamKerja.ID',
@@ -47,7 +47,7 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
         ],
-        backgroundColor: Colors.amber[600],
+        backgroundColor: Colors.blue[600],
         elevation: 0,
       ),
       body: Stack(
@@ -57,7 +57,7 @@ class HomeView extends GetView<HomeController> {
             child: Container(
               height: 120,
               width: Get.width,
-              color: Colors.amber[600],
+              color: Colors.blue[600],
             ),
           ),
           Container(
@@ -246,7 +246,7 @@ class HomeView extends GetView<HomeController> {
                                         ),
                                         ItemKategori(
                                           title: "Payslip",
-                                          color: Colors.amber,
+                                          color: Colors.blue,
                                           icon: Icons.library_books_outlined,
                                           tap: () =>
                                               Get.toNamed(Routes.MENU_PAYSLIP),

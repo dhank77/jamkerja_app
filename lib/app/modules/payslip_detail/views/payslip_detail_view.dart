@@ -23,7 +23,7 @@ class PayslipDetailView extends GetView<PayslipDetailController> {
           const SizedBox(height: 20),
           const Center(
             child: CircularProgressIndicator(
-              color: Colors.amber,
+              color: Colors.blue,
             ),
           ),
           controller.data != ""

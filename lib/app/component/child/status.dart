@@ -18,7 +18,7 @@ class Status extends StatelessWidget {
             ? (status.toUpperCase() == 'DIAJUKAN')
                 ? Icon(
                     Icons.arrow_drop_down_circle_rounded,
-                    color: Colors.amberAccent,
+                    color: Colors.blueAccent,
                   )
                 : (status.toUpperCase() == 'DITERIMA' ||
                         status.toUpperCase() == 'AKTIF')
@@ -37,7 +37,7 @@ class Status extends StatelessWidget {
             fontSize: 10,
             fontWeight: FontWeight.w800,
             color: status.toUpperCase() == 'DIAJUKAN'
-                ? Colors.amberAccent[700]
+                ? Colors.blueAccent[700]
                 : (status.toUpperCase() == 'DITERIMA' ||
                         status.toUpperCase() == 'AKTIF'
                     ? Colors.green[300]

@@ -14,7 +14,7 @@ class MenuLemburView extends GetView<MenuLemburController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.amber[50],
+        color: Colors.blue[50],
         padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         child: Column(
           children: [
@@ -32,7 +32,7 @@ class MenuLemburView extends GetView<MenuLemburController> {
                         'Pengajuan Lembur',
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.amberAccent[500],
+                          color: Colors.blueAccent[500],
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
                         ),
@@ -47,7 +47,7 @@ class MenuLemburView extends GetView<MenuLemburController> {
                           child: const Icon(
                             Icons.add_circle,
                             size: 28,
-                            color: Colors.amber,
+                            color: Colors.blue,
                           ),
                         ),
                         const Text(

@@ -79,7 +79,7 @@ class _CameraCompState extends State<CameraComp> {
                           },
                           icon: const Icon(
                             Icons.camera,
-                            color: Colors.amber,
+                            color: Colors.blue,
                             size: 50,
                           ),
                           alignment: Alignment.center,
@@ -89,7 +89,7 @@ class _CameraCompState extends State<CameraComp> {
                   )
                 : const Center(
                     child: CircularProgressIndicator(
-                      color: Colors.amber,
+                      color: Colors.blue,
                     ),
                   ),
       ),

@@ -13,7 +13,7 @@ class Button extends StatelessWidget {
     this.label = "Simpan",
     this.animate = false,
     this.width = 200,
-    this.color = Colors.amber,
+    this.color = Colors.blue,
   }) : super(key: key);
 
   @override

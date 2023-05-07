@@ -52,7 +52,7 @@ class VisitAddView extends GetView<VisitAddController> {
                         horizontal: 20, vertical: 10),
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
-                      color: Colors.amber[600],
+                      color: Colors.blue[600],
                       border: Border.all(
                         color: Colors.white,
                       ),

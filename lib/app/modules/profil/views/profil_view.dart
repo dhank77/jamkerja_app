@@ -36,7 +36,7 @@ class ProfilView extends GetView<ProfilController> {
                                     imageUrl: controller.dataUser['images'],
                                     placeholder: (context, url) =>
                                         CircularProgressIndicator(
-                                      color: Colors.amber,
+                                      color: Colors.blue,
                                     ),
                                     errorWidget: (context, url, error) =>
                                         Icon(Icons.error),
@@ -86,7 +86,7 @@ class ProfilView extends GetView<ProfilController> {
                           begin: Alignment.topRight,
                           end: Alignment.bottomLeft,
                           colors: [
-                            Colors.amber.withOpacity(0.5),
+                            Colors.blue.withOpacity(0.5),
                             Colors.white70
                           ],
                         ),
@@ -98,11 +98,11 @@ class ProfilView extends GetView<ProfilController> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                ListProfile(
-                                  title: 'No. Pegawai',
-                                  value: controller.dataUser['nip'],
-                                  icon: Icons.card_membership_rounded,
-                                ),
+                                // ListProfile(
+                                //   title: 'No. Pegawai',
+                                //   value: controller.dataUser['nip'],
+                                //   icon: Icons.card_membership_rounded,
+                                // ),
                                 ListProfile(
                                   title: 'No. Telepon',
                                   value:
@@ -146,7 +146,7 @@ class ProfilView extends GetView<ProfilController> {
                                             ),
                                             backgroundColor:
                                                 MaterialStateProperty.all<
-                                                    Color>(Colors.amber),
+                                                    Color>(Colors.blue),
                                           ),
                                           onPressed: controller.animate.isFalse
                                               ? controller.logout

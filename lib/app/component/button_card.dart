@@ -25,7 +25,7 @@ class ButtonCard extends StatelessWidget {
         child: Container(
           width: 150,
           height: 100,
-          color: Colors.amber[300],
+          color: Colors.blue[300],
           child: animate == false
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,

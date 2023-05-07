@@ -34,6 +34,7 @@ class HomeController extends GetxController {
         final data = value.body;
         box.write('dataUser', {
           'name': data['name'].toString(),
+          'kode_perusahaan': data['kode_perusahaan'].toString(),
           'nip': data['nip'].toString(),
           'no_hp': data['no_hp'].toString(),
           'email': data['email'].toString(),

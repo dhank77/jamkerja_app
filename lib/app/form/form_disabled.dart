@@ -48,7 +48,7 @@ class FormDisabled extends StatelessWidget {
                       title,
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.amber[800],
+                        color: Colors.blue[800],
                       ),
                     ),
                   ),
