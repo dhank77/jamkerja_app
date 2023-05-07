@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/data/cuti_provider.dart';
+import 'package:jamkerja/app/data/cuti_provider.dart';
 
 class MenuCutiController extends GetxController {
   var listData = List<dynamic>.empty(growable: true).obs;

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 
 class PengumumanProvider extends GetConnect {
   Future<List<dynamic>> getLists(String token, String page) async {

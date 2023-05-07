@@ -1,14 +1,14 @@
 // ignore_for_file: unrelated_type_equality_checks
 
-import 'package:absensisbc/app/component/card_summary.dart';
+import 'package:jamkerja/app/component/card_summary.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/banner.dart';
-import 'package:absensisbc/app/component/child/navigation_bar_bottom.dart';
-import 'package:absensisbc/app/component/item_kategori.dart';
-import 'package:absensisbc/app/component/navigation.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/component/banner.dart';
+import 'package:jamkerja/app/component/child/navigation_bar_bottom.dart';
+import 'package:jamkerja/app/component/item_kategori.dart';
+import 'package:jamkerja/app/component/navigation.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -30,7 +30,7 @@ class HomeView extends GetView<HomeController> {
                 child: Image.asset("assets/images/logo.png"),
               ),
               const Text(
-                ' ABSENSI SBC',
+                ' JamKerja.ID',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ],

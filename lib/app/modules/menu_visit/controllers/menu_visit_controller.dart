@@ -6,9 +6,9 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/data/visit_provider.dart';
-import 'package:absensisbc/app/function/alert.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/data/visit_provider.dart';
+import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 

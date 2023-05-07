@@ -1,7 +1,7 @@
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/child/hero_image.dart';
-import 'package:absensisbc/app/component/pdf_view.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/child/hero_image.dart';
+import 'package:jamkerja/app/component/pdf_view.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

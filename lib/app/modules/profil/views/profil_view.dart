@@ -2,10 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/child/navigation_bar_bottom.dart';
-import 'package:absensisbc/app/component/list_profile.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/child/navigation_bar_bottom.dart';
+import 'package:jamkerja/app/component/list_profile.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 
 import '../controllers/profil_controller.dart';
 

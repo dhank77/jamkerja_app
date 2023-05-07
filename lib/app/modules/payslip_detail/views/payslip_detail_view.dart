@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 import '../controllers/payslip_detail_controller.dart';

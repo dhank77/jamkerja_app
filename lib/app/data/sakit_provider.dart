@@ -2,7 +2,7 @@
 
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 import 'package:get/get.dart';
 
 class SakitProvider extends GetConnect {

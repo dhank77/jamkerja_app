@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/modules/home/views/home_view.dart';
-import 'package:absensisbc/app/modules/pengumuman/views/pengumuman_view.dart';
-import 'package:absensisbc/app/modules/presensi_laporan/views/presensi_laporan_view.dart';
-import 'package:absensisbc/app/modules/profil/views/profil_view.dart';
+import 'package:jamkerja/app/modules/home/views/home_view.dart';
+import 'package:jamkerja/app/modules/pengumuman/views/pengumuman_view.dart';
+import 'package:jamkerja/app/modules/presensi_laporan/views/presensi_laporan_view.dart';
+import 'package:jamkerja/app/modules/profil/views/profil_view.dart';
 
 import '../controllers/navigation_bottom_controller.dart';
 

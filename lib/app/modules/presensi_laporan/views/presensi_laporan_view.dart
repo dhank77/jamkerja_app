@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/child/navigation_bar_bottom.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/child/navigation_bar_bottom.dart';
 
 import '../controllers/presensi_laporan_controller.dart';
 import 'package:intl/intl.dart';

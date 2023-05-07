@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/data/shift_provider.dart';
+import 'package:jamkerja/app/data/shift_provider.dart';
 
 class MenuShiftController extends GetxController {
   var listData = List<dynamic>.empty(growable: true).obs;

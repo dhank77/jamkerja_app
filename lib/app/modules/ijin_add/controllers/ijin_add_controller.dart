@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:absensisbc/app/data/ijin_provider.dart';
-import 'package:absensisbc/app/function/alert.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/data/ijin_provider.dart';
+import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

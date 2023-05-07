@@ -3,9 +3,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:absensisbc/app/data/visit_provider.dart';
-import 'package:absensisbc/app/function/alert.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/data/visit_provider.dart';
+import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:geocoding/geocoding.dart';

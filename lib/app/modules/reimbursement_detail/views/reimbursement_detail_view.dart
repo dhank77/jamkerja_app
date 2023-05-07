@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/child/hero_image.dart';
-import 'package:absensisbc/app/component/pdf_view.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/child/hero_image.dart';
+import 'package:jamkerja/app/component/pdf_view.dart';
 import 'package:path/path.dart' as path;
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/child/status.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/component/child/status.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 
 import '../controllers/reimbursement_detail_controller.dart';
 

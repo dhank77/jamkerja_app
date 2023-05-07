@@ -1,4 +1,4 @@
-import 'package:absensisbc/app/data/izin_provider.dart';
+import 'package:jamkerja/app/data/izin_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

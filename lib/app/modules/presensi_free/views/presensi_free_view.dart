@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/button_card.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/button_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

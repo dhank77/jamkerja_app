@@ -4,9 +4,9 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/data/providers/user_provider.dart';
-import 'package:absensisbc/app/function/alert.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/data/providers/user_provider.dart';
+import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 class AuthLoginController extends GetxController {
@@ -19,7 +19,7 @@ class AuthLoginController extends GetxController {
   late String? playerId;
 
   Future<void> initOneSignal() async {
-    await OneSignal.shared.setAppId("e286c21c-5f18-4464-bbc0-4a944b7ba371");
+    await OneSignal.shared.setAppId("f704606c-6d70-4d3c-ac27-07bd10652d53");
     final status = await OneSignal.shared.getDeviceState();
     playerId = status?.userId;
   }

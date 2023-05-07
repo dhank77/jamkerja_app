@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 
 class ProfilController extends GetxController {
   var dataUser = GetStorage().read('dataUser');

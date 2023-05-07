@@ -1,6 +1,6 @@
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/card_menu.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/card_menu.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

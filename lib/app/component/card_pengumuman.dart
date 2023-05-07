@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 import 'package:path/path.dart' as path;
 
 class CardPengumuman extends StatefulWidget {

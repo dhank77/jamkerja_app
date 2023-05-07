@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/data/reimbursement_provider.dart';
-import 'package:absensisbc/app/function/alert.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/data/reimbursement_provider.dart';
+import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 
 class ReimbursementAddController extends GetxController {
   final kodeReimbursement = ''.obs;

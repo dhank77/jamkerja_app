@@ -1,4 +1,4 @@
-import 'package:absensisbc/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +32,7 @@ class AuthLoginView extends GetView<AuthLoginController> {
                   child: Image.asset("assets/images/logo.png"),
                 ),
                 const Text(
-                  ' ABSENSI SBC',
+                  ' JamKerja.ID',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,

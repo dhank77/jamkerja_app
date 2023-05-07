@@ -1,7 +1,6 @@
-import 'dart:io';
 
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/function/alert.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/function/alert.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

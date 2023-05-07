@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/navigation.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/component/navigation.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 
 class NavBarBor extends StatelessWidget {
   const NavBarBor({

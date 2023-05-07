@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:absensisbc/app/component/child/status.dart';
+import 'package:jamkerja/app/component/child/status.dart';
 
 class CardMenu extends StatefulWidget {
   final String title, status, keterangan, color;

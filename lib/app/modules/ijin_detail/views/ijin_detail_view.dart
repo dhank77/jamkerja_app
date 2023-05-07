@@ -1,5 +1,5 @@
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/child/status.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/child/status.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

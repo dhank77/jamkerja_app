@@ -1,4 +1,4 @@
-import 'package:absensisbc/app/component/camera_comp.dart';
+import 'package:jamkerja/app/component/camera_comp.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 

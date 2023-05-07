@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/form/button.dart';
-import 'package:absensisbc/app/form/form_input.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/form/button.dart';
+import 'package:jamkerja/app/form/form_input.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';

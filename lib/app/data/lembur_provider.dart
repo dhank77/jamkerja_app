@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 
 class LemburProvider extends GetConnect {
   Future<Response> postLembur(

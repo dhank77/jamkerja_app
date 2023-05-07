@@ -20,7 +20,7 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
             child: Image.asset("assets/images/logo.png"),
           ),
           const Text(
-            ' ABSENSI SBC',
+            ' JamKerja.ID',
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           const SizedBox(

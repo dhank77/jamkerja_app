@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/widgets/splash.dart';
+import 'package:jamkerja/app/widgets/splash.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'app/routes/app_pages.dart';
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
     // Dev Only
     // return GetMaterialApp(
     //   debugShowCheckedModeBanner: false,
-    //   title: "ABSENSI SBC",
+    //   title: "JamKerja.ID",
     //   initialRoute:
     //       dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
     //   getPages: AppPages.routes,
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
         } else {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            title: "ABSENSI SBC",
+            title: "JamKerja.ID",
             initialRoute:
                 dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
             getPages: AppPages.routes,

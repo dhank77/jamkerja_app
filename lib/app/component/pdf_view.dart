@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/file.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
 import 'package:pdf_render/pdf_render_widgets.dart';
 
 class PdfPage extends StatelessWidget {

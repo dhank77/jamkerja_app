@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/card_pengumuman.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/card_pengumuman.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 
 import '../controllers/pengumuman_controller.dart';
 

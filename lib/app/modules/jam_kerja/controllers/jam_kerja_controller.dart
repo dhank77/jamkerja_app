@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:absensisbc/app/data/presensi_provider.dart';
+import 'package:jamkerja/app/data/presensi_provider.dart';
 import 'package:get/get.dart';
 
 class JamKerjaController extends GetxController {

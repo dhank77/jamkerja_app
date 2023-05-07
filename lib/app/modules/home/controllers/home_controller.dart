@@ -1,10 +1,10 @@
-import 'package:absensisbc/app/data/presensi_provider.dart';
+import 'package:jamkerja/app/data/presensi_provider.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:absensisbc/app/data/pengumuman_provider.dart';
-import 'package:absensisbc/app/data/providers/user_provider.dart';
-import 'package:absensisbc/app/function/alert.dart';
-import 'package:absensisbc/app/routes/app_pages.dart';
+import 'package:jamkerja/app/data/pengumuman_provider.dart';
+import 'package:jamkerja/app/data/providers/user_provider.dart';
+import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
   final box = GetStorage();

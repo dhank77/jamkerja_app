@@ -1,14 +1,12 @@
 // ignore_for_file: non_constant_identifier_names
 
 // Production
-// String BASEAPI = "https://sbcjombang.com/api/";
-// String BASEURL = "https://sbcjombang.com/";
 
-String BASEAPI = "http://sbcjombang.com/api/";
-String BASEURL = "http://sbcjombang.com/";
-String BASELINK = "sbcjombang.com";
+// String BASEAPI = "https://jamkerja.id/api/";
+// String BASEURL = "https://jamkerja.id/";
+// String BASELINK = "jamkerja.id";
 
 // Local
-// String BASEAPI = "http://sbc-absensi.test/api/";
-// String BASEURL = "http://sbc-absensi.test/";
-// String BASELINK = "sbc-absensi.test";
+String BASEAPI = "http://jamkerja.test/api/";
+String BASEURL = "http://jamkerja.test/";
+String BASELINK = "jamkerja.test";

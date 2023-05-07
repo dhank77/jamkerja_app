@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 import 'package:path/path.dart' as path;
 
 class BannerPage extends StatelessWidget {

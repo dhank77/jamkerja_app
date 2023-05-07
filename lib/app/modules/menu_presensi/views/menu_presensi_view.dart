@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:absensisbc/app/component/app_bar.dart';
-import 'package:absensisbc/app/component/card_stats.dart';
+import 'package:jamkerja/app/component/app_bar.dart';
+import 'package:jamkerja/app/component/card_stats.dart';
 
 import '../controllers/menu_presensi_controller.dart';
 

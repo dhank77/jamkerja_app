@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:absensisbc/app/constant/api_const.dart';
+import 'package:jamkerja/app/constant/api_const.dart';
 import 'package:get_storage/get_storage.dart';
 
 class CutiProvider extends GetConnect {
