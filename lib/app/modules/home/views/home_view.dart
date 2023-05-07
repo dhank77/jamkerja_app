@@ -222,45 +222,77 @@ class HomeView extends GetView<HomeController> {
                                               Get.toNamed(Routes.MENU_IZIN),
                                         ),
                                         ItemKategori(
-                                          title: "Ijin",
-                                          color: const Color(0xffF4BB44),
-                                          icon: Icons
-                                              .system_security_update_warning_sharp,
+                                          title: "Lainnya",
+                                          color: const Color.fromARGB(
+                                              255, 203, 132, 18),
+                                          icon: Icons.menu,
                                           tap: () =>
-                                              Get.toNamed(Routes.MENU_IJIN),
+                                              controller.modalBottomSheetMenu(),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 30),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              Container(
+                                height: 6,
+                                width: Get.width,
+                                color: Colors.grey.withOpacity(0.2),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 25),
+                                child: Column(
+                                  children: [
+                                    const SizedBox(height: 30),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          "Pengumuman",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        GestureDetector(
+                                          onTap: () =>
+                                              Get.toNamed(Routes.PENGUMUMAN),
+                                          child: const Text(
+                                            "Lihat Semua",
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
                                         ),
                                       ],
                                     ),
                                     const SizedBox(height: 20),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        ItemKategori(
-                                          title: "Reimbur\nsement",
-                                          color: const Color(0xff14639e),
-                                          icon: Icons.receipt_long_outlined,
-                                          tap: () => Get.toNamed(
-                                            Routes.MENU_REIMBURSEMENT,
-                                          ),
+                                    SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Obx(
+                                        () => Row(
+                                          children: controller.listPengumuman
+                                              .map(
+                                                (item) => BannerPage(
+                                                  image:
+                                                      item['file'].toString(),
+                                                  tap: () => Get.toNamed(
+                                                    Routes.PENGUMUMAN_DETAIL,
+                                                    arguments: item,
+                                                  ),
+                                                ),
+                                              )
+                                              .toList(),
                                         ),
-                                        ItemKategori(
-                                          title: "Payslip",
-                                          color: Colors.blue,
-                                          icon: Icons.library_books_outlined,
-                                          tap: () =>
-                                              Get.toNamed(Routes.MENU_PAYSLIP),
-                                        ),
-                                        ItemKategori(
-                                          title: "Perusahaan",
-                                          color: const Color(0xff8dc53e),
-                                          icon: Icons.corporate_fare,
-                                          tap: () => Get.toNamed(
-                                            Routes.MENU_PERUSAHAAN,
-                                          ),
-                                        ),
-                                        const SizedBox(width: 60),
-                                      ],
+                                      ),
                                     ),
                                     const SizedBox(height: 30),
                                   ],
@@ -452,69 +484,6 @@ class HomeView extends GetView<HomeController> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(height: 10),
-                              Container(
-                                height: 6,
-                                width: Get.width,
-                                color: Colors.grey.withOpacity(0.2),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 25),
-                                child: Column(
-                                  children: [
-                                    const SizedBox(height: 30),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        const Text(
-                                          "Pengumuman",
-                                          style: TextStyle(
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        GestureDetector(
-                                          onTap: () =>
-                                              Get.toNamed(Routes.PENGUMUMAN),
-                                          child: const Text(
-                                            "Lihat Semua",
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.red,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 20),
-                                    SingleChildScrollView(
-                                      scrollDirection: Axis.horizontal,
-                                      child: Obx(
-                                        () => Row(
-                                          children: controller.listPengumuman
-                                              .map(
-                                                (item) => BannerPage(
-                                                  image:
-                                                      item['file'].toString(),
-                                                  tap: () => Get.toNamed(
-                                                    Routes.PENGUMUMAN_DETAIL,
-                                                    arguments: item,
-                                                  ),
-                                                ),
-                                              )
-                                              .toList(),
-                                        ),
-                                      ),
-                                    ),
-                                    const SizedBox(height: 30),
-                                  ],
-                                ),
-                              )
                             ],
                           ),
                         ),
