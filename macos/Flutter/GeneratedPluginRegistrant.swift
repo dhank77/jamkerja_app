@@ -8,7 +8,7 @@ import Foundation
 import device_info_plus_macos
 import geolocator_apple
 import location
-import path_provider_macos
+import path_provider_foundation
 import pdf_render
 import sqflite
 
