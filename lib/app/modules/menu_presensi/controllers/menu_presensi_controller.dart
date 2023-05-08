@@ -4,14 +4,15 @@ import 'dart:io';
 
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:jamkerja/app/data/presensi_provider.dart';
 import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/function/distance.dart';
 import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:trust_location/trust_location.dart';
+import 'package:location/location.dart' as loc;
 
 class MenuPresensiController extends GetxController {
   var dataUser = GetStorage().read('dataUser');
@@ -37,14 +38,8 @@ class MenuPresensiController extends GetxController {
       List<Placemark> placemarks = await placemarkFromCoordinates(
           dataPosition['position'].latitude,
           dataPosition['position'].longitude);
-      alamat.value = placemarks[0].street.toString() +
-          ", " +
-          placemarks[0].subLocality.toString() +
-          ", " +
-          placemarks[0].country.toString();
-      longlat.value = dataPosition['position'].latitude.toString() +
-          ", " +
-          dataPosition['position'].longitude.toString();
+      alamat.value = "${placemarks[0].street}, ${placemarks[0].subLocality}, ${placemarks[0].country}";
+      longlat.value = "${dataPosition['position'].latitude}, ${dataPosition['position'].longitude}";
       latitude.value = dataPosition['position'].latitude;
       longitude.value = dataPosition['position'].longitude;
     } else {
@@ -53,37 +48,34 @@ class MenuPresensiController extends GetxController {
   }
 
   Future<Map<String, dynamic>> getPosition() async {
+    loc.Location location = loc.Location();
+
     bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    loc.PermissionStatus permissionGranted;
+    serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
-      return {
-        "message": "Handphone anda tidak mendukung fitur GPS!",
-        "error": true,
-      };
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return {
-          "message": "Perizinan Lokasi ditolak",
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+          return {
+          "message": "Harap Mengaktifkan Perizinan Lokasi Anda",
           "error": true,
         };
       }
     }
 
-    if (permission == LocationPermission.deniedForever) {
-      return {
-        "message": "Harap Mengaktifkan Perizinan Lokasi Anda",
-        "error": true,
-      };
+    permissionGranted = await location.hasPermission();
+    if (permissionGranted == loc.PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != loc.PermissionStatus.granted) {
+          return {
+          "message": "Harap Mengaktifkan Perizinan Lokasi Anda",
+          "error": true,
+        };
+      }
     }
 
     return {
-      "position": await Geolocator.getCurrentPosition(),
+      "position": await location.getLocation(),
       "message": "Berhasil",
       "error": false,
     };
@@ -160,7 +152,7 @@ class MenuPresensiController extends GetxController {
     if (latitude.value == 0.0 || longitude.value == 0.0) {
       return false;
     } else {
-      double distanceInMeters = Geolocator.distanceBetween(
+      double distanceInMeters = calculateDistance(
         double.parse(lokasiData['latitude']),
         double.parse(lokasiData['longitude']),
         latitude.value,
@@ -176,8 +168,6 @@ class MenuPresensiController extends GetxController {
 
   Future<bool> isFakeGPS() async {
     if (Platform.isAndroid) {
-      await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
       bool isMockLocation = await TrustLocation.isMockLocation;
       return isMockLocation;
     } else {

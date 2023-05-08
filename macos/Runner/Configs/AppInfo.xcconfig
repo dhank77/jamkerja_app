@@ -8,7 +8,7 @@
 PRODUCT_NAME = hris
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.dhank77.sbc.absensi
+PRODUCT_BUNDLE_IDENTIFIER = id.jamkerja.app
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 com.dhank77.hris. All rights reserved.

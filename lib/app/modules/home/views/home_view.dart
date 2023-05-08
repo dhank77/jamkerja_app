@@ -94,8 +94,8 @@ class HomeView extends GetView<HomeController> {
                         leading: Container(
                           width: 50,
                           child: ClipOval(
-                            child: controller.dataUser['images'] != ""
-                                ? Image.network(controller.dataUser['images'])
+                            child: controller.dataUser['images'].toString() != ""
+                                ? Image.network(controller.dataUser['images'].toString())
                                 : Image.asset("assets/images/profile_logo.png"),
                           ),
                         ),

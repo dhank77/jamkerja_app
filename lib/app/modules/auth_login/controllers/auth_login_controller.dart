@@ -16,16 +16,9 @@ class AuthLoginController extends GetxController {
   late TextEditingController email;
   late TextEditingController password;
 
-  late String? playerId;
-
-  Future<void> initOneSignal() async {
-    await OneSignal.shared.setAppId("f704606c-6d70-4d3c-ac27-07bd10652d53");
-    final status = await OneSignal.shared.getDeviceState();
-    playerId = status?.userId;
-  }
+  var playerId = GetStorage().read('playerId');
 
   void login() async {
-    await initOneSignal();
     await getImei();
 
     if (email.text != '' &&
@@ -35,7 +28,7 @@ class AuthLoginController extends GetxController {
       try {
         animate.value = true;
         await UserProvider()
-            .login(email.text, password.text, imei.value, playerId!)
+            .login(email.text, password.text, imei.value, playerId)
             .then((value) {
           if (value.body == null || value.body == '') {
             animate.value = false;
@@ -80,13 +73,12 @@ class AuthLoginController extends GetxController {
     } else if (Platform.isAndroid) {
       var androidDeviceInfo = await deviceInfo.androidInfo;
       imei.value =
-          "${androidDeviceInfo.androidId}.${androidDeviceInfo.fingerprint}";
+          "${androidDeviceInfo.androidId}.${androidDeviceInfo.fingerprint}.${androidDeviceInfo.model}.${androidDeviceInfo.display}";
     }
   }
 
   @override
   void onInit() {
-    initOneSignal();
     getImei();
     // email = TextEditingController();
     // password = TextEditingController();

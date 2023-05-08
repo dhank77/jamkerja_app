@@ -2,21 +2,21 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:jamkerja/app/data/visit_provider.dart';
 import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/function/distance.dart';
 import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:location/location.dart' as loc;
 
 class MenuVisitController extends GetxController {
   var listData = List<dynamic>.empty(growable: true).obs;
   final picked = ''.obs;
   final pickedStart = DateFormat('dd-MM-yyyy')
-      .format(DateTime.now().subtract(Duration(days: 7)))
+      .format(DateTime.now().subtract(const Duration(days: 7)))
       .toString()
       .obs;
   final pickedEnd =
@@ -36,37 +36,34 @@ class MenuVisitController extends GetxController {
   final lokasiData = {}.obs;
 
   Future<Map<String, dynamic>> getPosition() async {
+    loc.Location location = loc.Location();
+
     bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    loc.PermissionStatus permissionGranted;
+    serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
-      return {
-        "message": "Handphone anda tidak mendukung fitur GPS!",
-        "error": true,
-      };
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return {
-          "message": "Perizinan Lokasi ditolak",
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+          return {
+          "message": "Harap Mengaktifkan Perizinan Lokasi Anda",
           "error": true,
         };
       }
     }
 
-    if (permission == LocationPermission.deniedForever) {
-      return {
-        "message": "Harap Mengaktifkan Perizinan Lokasi Anda",
-        "error": true,
-      };
+    permissionGranted = await location.hasPermission();
+    if (permissionGranted == loc.PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != loc.PermissionStatus.granted) {
+          return {
+          "message": "Harap Mengaktifkan Perizinan Lokasi Anda",
+          "error": true,
+        };
+      }
     }
 
     return {
-      "position": await Geolocator.getCurrentPosition(),
+      "position": await location.getLocation(),
       "message": "Berhasil",
       "error": false,
     };
@@ -105,7 +102,7 @@ class MenuVisitController extends GetxController {
     if (latitude.value == 0.0 || longitude.value == 0.0) {
       return false;
     } else {
-      double distanceInMeters = Geolocator.distanceBetween(
+      double distanceInMeters = calculateDistance(
         double.parse(lokasiData['latitude']),
         double.parse(lokasiData['longitude']),
         latitude.value,

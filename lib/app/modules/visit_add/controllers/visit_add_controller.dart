@@ -9,10 +9,10 @@ import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:geocoding/geocoding.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:location/location.dart' as loc;
 
 class VisitAddController extends GetxController {
   var result = Get.arguments;
@@ -108,55 +108,34 @@ class VisitAddController extends GetxController {
   }
 
   void getCurrentLocation() async {
+    loc.Location location = loc.Location();
+
     bool serviceEnabled;
-    LocationPermission permission;
+    loc.PermissionStatus permissionGranted;
+    loc.LocationData locationData;
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+        return;
       }
     }
 
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
+    permissionGranted = await location.hasPermission();
+    if (permissionGranted == loc.PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != loc.PermissionStatus.granted) {
+        return;
+      }
     }
-    // print('objec3');
-    // Position position = await Geolocator.getCurrentPosition(
-    //   desiredAccuracy: LocationAccuracy.best,
-    // );
 
-    // print(position);
+    locationData = await location.getLocation();
+    lat.value = locationData.latitude!;
+    long.value = locationData.longitude!;
+    List<Placemark> placemarks = await placemarkFromCoordinates(lat.value, long.value);
+    lokasi.value = "${placemarks[0].street}, ${placemarks[0].subLocality}, ${placemarks[0].country}";
 
-    // lat.value = position.latitude;
-    // long.value = position.longitude;
-
-    // List<Placemark> placemarks =
-    //     await placemarkFromCoordinates(position.latitude, position.longitude);
-    // lokasi.value =
-    //     "${placemarks[0].street}, ${placemarks[0].subLocality}, ${placemarks[0].country}";
-
-    await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.best,
-    ).then((Position position) async {
-      lat.value = position.latitude;
-      long.value = position.longitude;
-
-      List<Placemark> placemarks =
-          await placemarkFromCoordinates(position.latitude, position.longitude);
-      lokasi.value =
-          "${placemarks[0].street}, ${placemarks[0].subLocality}, ${placemarks[0].country}";
-    }).catchError((e) {
-      print('objecssssst');
-      print(e);
-    });
   }
 
   @override

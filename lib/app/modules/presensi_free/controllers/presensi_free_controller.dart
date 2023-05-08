@@ -4,9 +4,9 @@ import 'dart:io';
 
 import 'package:jamkerja/app/data/presensi_provider.dart';
 import 'package:jamkerja/app/function/alert.dart';
+import 'package:jamkerja/app/function/distance.dart';
 import 'package:jamkerja/app/routes/app_pages.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -189,7 +189,7 @@ class PresensiFreeController extends GetxController {
     animate3.value = true;
     try {
       bool onOfficeRadius = await onRadiusDistance();
-      bool isFakeLocation = isMock.value; //await isFakeGPS();
+      bool isFakeLocation = isMock.value;
 
       if (double.parse(lokasiData['latitude']) == -7.688264 ||
           double.parse(lokasiData['longitude']) == 112.273356) {
@@ -231,7 +231,7 @@ class PresensiFreeController extends GetxController {
     animate4.value = true;
     try {
       bool onOfficeRadius = await onRadiusDistance();
-      bool isFakeLocation = isMock.value; //isMock.value; //await isFakeGPS();
+      bool isFakeLocation = isMock.value; 
 
       if (double.parse(lokasiData['latitude']) == -7.688264 ||
           double.parse(lokasiData['longitude']) == 112.273356) {
@@ -332,7 +332,7 @@ class PresensiFreeController extends GetxController {
     if (lat.value == -7.688264 || long.value == 112.273356) {
       return false;
     } else {
-      double distanceInMeters = Geolocator.distanceBetween(
+      double distanceInMeters = calculateDistance(
         double.parse(lokasiData['latitude']),
         double.parse(lokasiData['longitude']),
         lat.value,

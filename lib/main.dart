@@ -40,6 +40,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var dataUser = GetStorage().read('dataUser');
 
+    Future<void> initOneSignal() async {
+      await OneSignal.shared.setAppId("f704606c-6d70-4d3c-ac27-07bd10652d53");
+      final status = await OneSignal.shared.getDeviceState();
+      var playerId = status?.userId;
+      final box = GetStorage();
+      box.write('playerId', playerId);
+
+      await Future.delayed(const Duration(seconds: 1));
+
+    }
+
     // Dev Only
     // return GetMaterialApp(
     //   debugShowCheckedModeBanner: false,
@@ -49,7 +60,7 @@ class MyApp extends StatelessWidget {
     //   getPages: AppPages.routes,
     // );
     return FutureBuilder(
-      future: Future.delayed(const Duration(milliseconds: 1500)),
+      future: initOneSignal(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const SplashScreen();

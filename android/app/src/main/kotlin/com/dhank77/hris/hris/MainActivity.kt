@@ -1,4 +1,4 @@
-package com.dhank77.sbc.absensi
+package id.jamkerja.app
 
 import io.flutter.embedding.android.FlutterActivity
 
