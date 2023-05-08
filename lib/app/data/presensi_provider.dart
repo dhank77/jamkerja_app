@@ -45,7 +45,7 @@ class PresensiProvider extends GetConnect {
       'Authorization': "Bearer $token",
       'Accept': 'application/json',
     };
-    var url = Uri.https(BASELINK, 'api/presensi/store_free');
+    var url = Uri.http(BASELINK, 'api/presensi/store_free_face');
     var response = await http.post(url, body: body, headers: headers);
 
     var jsonResponse =

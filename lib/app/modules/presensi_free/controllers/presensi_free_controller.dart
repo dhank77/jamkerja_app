@@ -82,7 +82,6 @@ class PresensiFreeController extends GetxController {
   void checkIn() async {
     animate1.value = true;
     try {
-      // await getImage(ImageSource.camera);
       await moveCamera();
 
       if (compressImagePath.value != "") {
@@ -90,7 +89,7 @@ class PresensiFreeController extends GetxController {
         String img64 = "data:image/png;base64,${base64Encode(bytes)}";
 
         bool onOfficeRadius = await onRadiusDistance();
-        bool isFakeLocation = isMock.value; //await isFakeGPS();
+        bool isFakeLocation = isMock.value;
 
         if (double.parse(lokasiData['latitude']) == -7.688264 ||
             double.parse(lokasiData['longitude']) == 112.273356) {
@@ -112,6 +111,8 @@ class PresensiFreeController extends GetxController {
             "datang",
           )
               .then((value) {
+                print('value return');
+                print(value);
             animate1.value = false;
             compressImagePath.value = "";
             if (value['status'] == 'Error') {
@@ -355,13 +356,6 @@ class PresensiFreeController extends GetxController {
     } catch (e) {
       print(e);
     }
-
-    // if (Platform.isAndroid) {
-    //   bool isMockLocation = await TrustLocation.isMockLocation;
-    //   return isMockLocation;
-    // } else {
-    //   return false;
-    // }
   }
 
   void callIncrement() {

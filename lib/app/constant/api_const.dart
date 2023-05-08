@@ -2,6 +2,12 @@
 
 // Production
 
+// // Domain
+// String BASEAPI = "http://app.jamkerja.id/api/";
+// String BASEURL = "http://app.jamkerja.id/";
+// String BASELINK = "app.jamkerja.id";
+
+// // API
 String BASEAPI = "http://103.180.165.232/api/";
 String BASEURL = "http://103.180.165.232/";
 String BASELINK = "103.180.165.232";
