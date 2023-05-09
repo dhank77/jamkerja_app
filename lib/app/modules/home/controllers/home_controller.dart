@@ -84,126 +84,140 @@ class HomeController extends GetxController {
         return Container(
           height: 450.0,
           color: Colors.transparent,
-          child: Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(50.0),
-                  topRight: Radius.circular(50.0)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  const Text(
-                    "Menu Utama",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50.0),
+                    topRight: Radius.circular(50.0)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    const Text(
+                      "Semua Menu",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ItemKategori(
-                        title: "Presensi",
-                        color: const Color(0xff5369f8),
-                        icon: Icons.location_on,
-                        tap: () => Get.toNamed(
-                          Routes.PRESENSI_FREE,
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ItemKategori(
+                          title: "Presensi",
+                          color: const Color.fromARGB(255, 62, 22, 193),
+                          icon: Icons.location_on,
+                          tap: () => Get.toNamed(
+                            Routes.PRESENSI_FREE,
+                          ),
                         ),
-                      ),
-                      ItemKategori(
-                        title: "Kunjungan",
-                        color: const Color(0xffec1d27),
-                        icon: Icons.share_location_sharp,
-                        tap: () => Get.toNamed(
-                          Routes.MENU_VISIT,
+                        ItemKategori(
+                          title: "Laporan\nPresensi",
+                          color: const Color(0xff5369f8),
+                          icon: Icons.edit_document,
+                          tap: () => Get.toNamed(
+                            Routes.PRESENSI_LAPORAN,
+                          ),
                         ),
-                      ),
-                      ItemKategori(
-                        title: "Lembur",
-                        color: const Color(0xff0b945e),
-                        icon: Icons.timelapse_sharp,
-                        tap: () => Get.toNamed(
-                          Routes.MENU_LEMBUR,
+                        ItemKategori(
+                          title: "Lembur",
+                          color: const Color(0xff0b945e),
+                          icon: Icons.timelapse_sharp,
+                          tap: () => Get.toNamed(
+                            Routes.MENU_LEMBUR,
+                          ),
                         ),
-                      ),
-                      ItemKategori(
-                        title: "Jam Kerja",
-                        color: const Color(0xff72d2a2),
-                        icon: Icons.lock_clock,
-                        tap: () => Get.toNamed(Routes.JAM_KERJA),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      
-                      ItemKategori(
-                        title: "Cuti",
-                        color: const Color(0xff68a9e3),
-                        icon: Icons.timer_sharp,
-                        tap: () => Get.toNamed(
-                          Routes.MENU_CUTI,
+                        ItemKategori(
+                          title: "Presensi\nLembur",
+                          color: const Color.fromARGB(255, 130, 54, 245),
+                          icon: Icons.location_history,
+                          tap: () => Get.toNamed(Routes.PRESENSI_LEMBUR),
                         ),
-                      ),
-                      ItemKategori(
-                        title: "Sakit",
-                        color: Colors.lightBlueAccent,
-                        icon: Icons.sticky_note_2,
-                        tap: () => Get.toNamed(
-                          Routes.MENU_SAKIT,
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ItemKategori(
+                          title: "Cuti",
+                          color: const Color(0xff68a9e3),
+                          icon: Icons.timer_sharp,
+                          tap: () => Get.toNamed(
+                            Routes.MENU_CUTI,
+                          ),
                         ),
-                      ),
-                       ItemKategori(
-                        title: "Perusahaan",
-                        color: const Color(0xff8dc53e),
-                        icon: Icons.corporate_fare,
-                        tap: () => Get.toNamed(
-                          Routes.MENU_PERUSAHAAN,
+                        ItemKategori(
+                          title: "Sakit",
+                          color: Colors.lightBlueAccent,
+                          icon: Icons.sticky_note_2,
+                          tap: () => Get.toNamed(
+                            Routes.MENU_SAKIT,
+                          ),
                         ),
-                      ),
-                      ItemKategori(
-                        title: "Ijin",
-                        color: const Color(0xffF4BB44),
-                        icon: Icons.system_security_update_warning_sharp,
-                        tap: () => Get.toNamed(Routes.MENU_IJIN),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ItemKategori(
-                        title: "Izin",
-                        color: const Color(0xff72d2a2),
-                        icon: Icons.note_alt_sharp,
-                        tap: () => Get.toNamed(Routes.MENU_IZIN),
-                      ),
-                      ItemKategori(
-                        title: "Reimbur\nsement",
-                        color: const Color(0xff14639e),
-                        icon: Icons.receipt_long_outlined,
-                        tap: () => Get.toNamed(
-                          Routes.MENU_REIMBURSEMENT,
+                        ItemKategori(
+                          title: "Izin",
+                          color: const Color(0xff72d2a2),
+                          icon: Icons.note_alt_sharp,
+                          tap: () => Get.toNamed(Routes.MENU_IZIN),
                         ),
-                      ),
-                      ItemKategori(
-                        title: "Payslip",
-                        color: Colors.blue,
-                        icon: Icons.library_books_outlined,
-                        tap: () => Get.toNamed(Routes.MENU_PAYSLIP),
-                      ),
-                      const SizedBox(width: 60),
-                    ],
-                  ),
-                  const SizedBox(height: 40),
-                ],
+                        ItemKategori(
+                          title: "Ijin",
+                          color: const Color(0xffF4BB44),
+                          icon: Icons.system_security_update_warning_sharp,
+                          tap: () => Get.toNamed(Routes.MENU_IJIN),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ItemKategori(
+                          title: "Jam Kerja",
+                          color: const Color(0xff72d2a2),
+                          icon: Icons.calendar_month,
+                          tap: () => Get.toNamed(Routes.JAM_KERJA),
+                        ),
+                        ItemKategori(
+                          title: "Kunjungan",
+                          color: const Color(0xffec1d27),
+                          icon: Icons.share_location_sharp,
+                          tap: () => Get.toNamed(
+                            Routes.MENU_VISIT,
+                          ),
+                        ),
+                        ItemKategori(
+                          title: "Reimbur\nsement",
+                          color: const Color(0xff14639e),
+                          icon: Icons.receipt_long_outlined,
+                          tap: () => Get.toNamed(
+                            Routes.MENU_REIMBURSEMENT,
+                          ),
+                        ),
+                        // ItemKategori(
+                        //   title: "Payslip",
+                        //   color: Colors.blue,
+                        //   icon: Icons.library_books_outlined,
+                        //   tap: () => Get.toNamed(Routes.MENU_PAYSLIP),
+                        // ),
+                         ItemKategori(
+                          title: "Perusahaan",
+                          color: const Color(0xff8dc53e),
+                          icon: Icons.corporate_fare,
+                          tap: () => Get.toNamed(
+                            Routes.MENU_PERUSAHAAN,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
               ),
             ),
           ),

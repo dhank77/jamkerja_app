@@ -58,6 +58,8 @@ import '../modules/presensi_free/bindings/presensi_free_binding.dart';
 import '../modules/presensi_free/views/presensi_free_view.dart';
 import '../modules/presensi_laporan/bindings/presensi_laporan_binding.dart';
 import '../modules/presensi_laporan/views/presensi_laporan_view.dart';
+import '../modules/presensi_lembur/bindings/presensi_lembur_binding.dart';
+import '../modules/presensi_lembur/views/presensi_lembur_view.dart';
 import '../modules/profil/bindings/profil_binding.dart';
 import '../modules/profil/views/profil_view.dart';
 import '../modules/reimbursement_add/bindings/reimbursement_add_binding.dart';
@@ -267,6 +269,11 @@ class AppPages {
       name: _Paths.CAMERA_FRONT,
       page: () => const CameraFrontView(),
       binding: CameraFrontBinding(),
+    ),
+    GetPage(
+      name: _Paths.PRESENSI_LEMBUR,
+      page: () => const PresensiLemburView(),
+      binding: PresensiLemburBinding(),
     ),
   ];
 }

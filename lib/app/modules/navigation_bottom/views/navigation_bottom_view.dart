@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:jamkerja/app/modules/home/views/home_view.dart';
+import 'package:jamkerja/app/modules/menu_payslip/views/menu_payslip_view.dart';
 import 'package:jamkerja/app/modules/pengumuman/views/pengumuman_view.dart';
 import 'package:jamkerja/app/modules/presensi_free/views/presensi_free_view.dart';
 import 'package:jamkerja/app/modules/presensi_laporan/views/presensi_laporan_view.dart';
@@ -22,7 +23,7 @@ class NavigationBottomView extends GetView<NavigationBottomController>  {
         HomeView(),
         PengumumanView(),
         PresensiFreeView(),
-        PresensiLaporanView(),
+        MenuPayslipView(),
         ProfilView(),
       ],
       items: _navBarsItems(),
@@ -74,8 +75,8 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       inactiveColorPrimary: Colors.grey,
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(Icons.history),
-      title: ("Riwayat"),
+      icon: const Icon(Icons.monetization_on),
+      title: ("Slip Gaji"),
       activeColorPrimary: Colors.blue,
       inactiveColorPrimary: Colors.grey,
     ),

@@ -65,13 +65,13 @@ class MyApp extends StatelessWidget {
     }
 
     // Dev Only
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "JamKerja.ID",
-      initialRoute:
-          dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
-      getPages: AppPages.routes,
-    );
+    // return GetMaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   title: "JamKerja.ID",
+    //   initialRoute:
+    //       dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
+    //   getPages: AppPages.routes,
+    // );
     return FutureBuilder(
       future: initOneSignal(),
       builder: (context, snapshot) {

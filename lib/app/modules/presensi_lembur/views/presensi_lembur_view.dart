@@ -7,10 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../controllers/presensi_free_controller.dart';
+import '../controllers/presensi_lembur_controller.dart';
 
-class PresensiFreeView extends GetView<PresensiFreeController> {
-  const PresensiFreeView({Key? key}) : super(key: key);
+class PresensiLemburView extends GetView<PresensiLemburController> {
+  const PresensiLemburView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class PresensiFreeView extends GetView<PresensiFreeController> {
       body: Column(
         children: [
           SizedBox(
-            height: 200,
+            height: 350,
             child: Stack(
               children: [
                 Obx(
@@ -113,32 +113,14 @@ class PresensiFreeView extends GetView<PresensiFreeController> {
                           ButtonCard(
                             press: () => controller.checkIn(),
                             icon: Icons.location_history,
-                            judul: "Check In",
+                            judul: "Check In Lembur",
                             animate: controller.animate1.value,
                           ),
                           ButtonCard(
                             press: () => controller.checkOut(),
                             icon: Icons.wrong_location_rounded,
-                            judul: "Check Out",
+                            judul: "Check Out Lembur",
                             animate: controller.animate2.value,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ButtonCard(
-                            press: () => controller.istirahatMulai(),
-                            icon: Icons.free_breakfast,
-                            judul: "Break",
-                            animate: controller.animate3.value,
-                          ),
-                          ButtonCard(
-                            press: () => controller.istirahatSelesai(),
-                            icon: Icons.breakfast_dining,
-                            judul: "After Break",
-                            animate: controller.animate4.value,
                           ),
                         ],
                       ),

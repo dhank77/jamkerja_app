@@ -40,6 +40,7 @@ abstract class Routes {
   static const IJIN_DETAIL = _Paths.IJIN_DETAIL;
   static const VISIT_ADD = _Paths.VISIT_ADD;
   static const CAMERA_FRONT = _Paths.CAMERA_FRONT;
+  static const PRESENSI_LEMBUR = _Paths.PRESENSI_LEMBUR;
 }
 
 abstract class _Paths {
@@ -81,4 +82,5 @@ abstract class _Paths {
   static const IJIN_DETAIL = '/ijin-detail';
   static const VISIT_ADD = '/visit-add';
   static const CAMERA_FRONT = '/camera-front';
+  static const PRESENSI_LEMBUR = '/presensi-lembur';
 }

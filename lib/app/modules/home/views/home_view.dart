@@ -161,11 +161,11 @@ class HomeView extends GetView<HomeController> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         ItemKategori(
-                                          title: "Presensi",
+                                          title: "Laporan\nPresensi",
                                           color: const Color(0xff5369f8),
-                                          icon: Icons.location_on,
+                                          icon: Icons.edit_document,
                                           tap: () => Get.toNamed(
-                                            Routes.PRESENSI_FREE,
+                                            Routes.PRESENSI_LAPORAN,
                                           ),
                                         ),
                                         ItemKategori(
@@ -187,7 +187,7 @@ class HomeView extends GetView<HomeController> {
                                         ItemKategori(
                                           title: "Jam Kerja",
                                           color: const Color(0xff72d2a2),
-                                          icon: Icons.lock_clock,
+                                          icon: Icons.calendar_month,
                                           tap: () =>
                                               Get.toNamed(Routes.JAM_KERJA),
                                         ),
