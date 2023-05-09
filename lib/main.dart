@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:jamkerja/app/widgets/splash.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 import 'app/routes/app_pages.dart';
 
@@ -47,18 +48,30 @@ class MyApp extends StatelessWidget {
       final box = GetStorage();
       box.write('playerId', playerId);
 
-      await Future.delayed(const Duration(seconds: 1));
+      var deviceInfo = DeviceInfoPlugin();
+      String imei = '';
+      if (Platform.isIOS) {
+        var iosDeviceInfo = await deviceInfo.iosInfo;
+        imei = iosDeviceInfo.identifierForVendor.toString();
+      } else if (Platform.isAndroid) {
+        var androidDeviceInfo = await deviceInfo.androidInfo;
+        imei =
+            "${androidDeviceInfo.androidId}.${androidDeviceInfo.fingerprint}.${androidDeviceInfo.model}.${androidDeviceInfo.display}";
+      }
 
+      box.write('imei', imei);
+
+      await Future.delayed(const Duration(seconds: 1));
     }
 
     // Dev Only
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "JamKerja.ID",
-      initialRoute:
-          dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
-      getPages: AppPages.routes,
-    );
+    // return GetMaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   title: "JamKerja.ID",
+    //   initialRoute:
+    //       dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
+    //   getPages: AppPages.routes,
+    // );
     return FutureBuilder(
       future: initOneSignal(),
       builder: (context, snapshot) {
