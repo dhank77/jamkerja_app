@@ -52,10 +52,13 @@ class CutiAddController extends GetxController {
   }
 
   void sendData() {
+
     try {
       if (imageFile == null) {
         dialogError("Gambar wajib dipilih!");
-      } else {
+      } else if(kodeCuti.value.toString() == "") {
+        dialogError("Pilih jenis cuti terlebih dahulu!");
+      }else{
         animate.value = true;
         List<int> imageBytes = imageFile!.readAsBytesSync();
         String baseimage = "data:image/png;base64,${base64Encode(imageBytes)}";
@@ -82,6 +85,7 @@ class CutiAddController extends GetxController {
       }
     } catch (e) {
       print(e);
+     
     }
   }
 

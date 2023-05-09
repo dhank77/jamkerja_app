@@ -21,8 +21,6 @@ class JamKerjaView extends GetView<JamKerjaController> {
                     SizedBox(
                       height: 25,
                       child: Text(
-                        controller.jamKerja['kode_jam_kerja'] +
-                            " - " +
                             controller.jamKerja['nama'],
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
@@ -120,7 +118,7 @@ class JamKerjaView extends GetView<JamKerjaController> {
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(50),
-                                            color: Colors.blue,
+                                            color: Colors.yellow[600],
                                           ),
                                           padding: const EdgeInsets.all(8),
                                         ),
