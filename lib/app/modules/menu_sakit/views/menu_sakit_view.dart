@@ -14,7 +14,7 @@ class MenuSakitView extends GetView<MenuSakitController> {
     return Scaffold(
       appBar: const AppBarCustom(),
       body: Container(
-        color: Colors.blueAccent[50],
+        color: Colors.blue[50],
         padding: const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
         child: Column(
           children: [

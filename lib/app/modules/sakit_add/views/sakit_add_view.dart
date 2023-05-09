@@ -15,9 +15,10 @@ class SakitAddView extends GetView<SakitAddController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarCustom(),
-      body: SingleChildScrollView(
-        child: Container(
-          color: Colors.blue[50],
+      body: Container(
+        color: Colors.blue[50],
+        height: Get.height,
+        child: SingleChildScrollView(
           child: Column(
             children: [
               const SizedBox(
