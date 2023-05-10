@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'package:intl/intl.dart';
 
+import 'package:jamkerja/app/data/lembur_provider.dart';
 import 'package:jamkerja/app/data/presensi_provider.dart';
 import 'package:jamkerja/app/function/alert.dart';
 import 'package:jamkerja/app/function/distance.dart';
@@ -19,168 +21,79 @@ class PresensiLemburController extends GetxController {
 
   final lat = double.parse("-7.688264").obs;
   final long = 112.273356.obs;
+
+  final lembur = false.obs;
+
   final dateTime = DateTime.now().obs;
   Completer<GoogleMapController> ctrmaps = Completer();
 
   final animate1 = false.obs;
   final animate2 = false.obs;
-  final animate3 = false.obs;
-  final animate4 = false.obs;
+  final id = ''.obs;
 
   final lokasiData = {}.obs;
 
-  var selectedImagePath = ''.obs;
-  var selectedImageSize = ''.obs;
-  var compressImagePath = ''.obs;
-  var compressImageSize = ''.obs;
-
-  Future getImage(ImageSource imageSource) async {
-    final ImagePicker picker = ImagePicker();
-    final image = await picker.pickImage(
-      source: imageSource,
-      preferredCameraDevice: CameraDevice.rear,
-      imageQuality: 10,
-    );
-    if (image != null) {
-      selectedImagePath.value = image.path;
-      selectedImageSize.value =
-          "${((File(selectedImagePath.value)).lengthSync() / 1024 / 1024).toStringAsFixed(2)} Mb";
-
-      final dir = Directory.systemTemp;
-      final targetPath = "${dir.absolute.path}/temp.jpg";
-      var compressedFile = await FlutterImageCompress.compressAndGetFile(
-          selectedImagePath.value, targetPath,
-          quality: 50);
-      compressImagePath.value = compressedFile!.path;
-      compressImageSize.value =
-          "${((File(compressImagePath.value)).lengthSync() / 1024 / 1024).toStringAsFixed(2)} Mb";
+  void checkInOut(String keyword) async {
+    if (keyword == 'masuk') {
+      animate1.value = true;
     } else {
-      Get.snackbar("Error", "No Selected Image",
-          snackPosition: SnackPosition.BOTTOM);
+      animate2.value = true;
     }
-  }
-
-  Future<void> moveCamera() async {
-    XFile picture = await Get.toNamed(Routes.CAMERA_FRONT);
-    selectedImagePath.value = picture.path;
-    selectedImageSize.value =
-        "${((File(selectedImagePath.value)).lengthSync() / 1024 / 1024).toStringAsFixed(2)} Mb";
-
-    // Compress
-    final dir = await Directory.systemTemp;
-    final targetPath = "${dir.absolute.path}/temp.jpg";
-    var compressedFile = await FlutterImageCompress.compressAndGetFile(
-      selectedImagePath.value,
-      targetPath,
-      quality: 90,
-    );
-    compressImagePath.value = compressedFile!.path;
-    compressImageSize.value =
-        "${((File(compressImagePath.value)).lengthSync() / 1024 / 1024).toStringAsFixed(2)} Mb";
-  }
-
-  void checkIn() async {
-    animate1.value = true;
     try {
-      await moveCamera();
+      bool onOfficeRadius = await onRadiusDistance();
+      bool isFakeLocation = isMock.value;
 
-      if (compressImagePath.value != "") {
-        final bytes = File(compressImagePath.value).readAsBytesSync();
-        String img64 = "data:image/png;base64,${base64Encode(bytes)}";
-
-        bool onOfficeRadius = await onRadiusDistance();
-        bool isFakeLocation = isMock.value;
-
-        if (double.parse(lokasiData['latitude']) == -7.688264 ||
-            double.parse(lokasiData['longitude']) == 112.273356) {
+      if (double.parse(lokasiData['latitude']) == -7.688264 ||
+          double.parse(lokasiData['longitude']) == 112.273356) {
+        if (keyword == 'masuk') {
           animate1.value = false;
-          dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
-        } else if (!onOfficeRadius) {
-          animate1.value = false;
-          dialogError('Anda tidak berada di sekitar area kantor!');
-        } else if (isFakeLocation) {
-          animate1.value = false;
-          dialogError('Anda Terdeteksi Menggunakan Fake Location!');
         } else {
-          await PresensiProvider()
-              .postPresensiFree(
-            dataUser['nip'].toString(),
-            dataUser['access_token'].toString(),
-            "${lat.value.toString()}, ${long.value.toString()}",
-            img64.toString(),
-            "datang",
-          )
-              .then((value) {
-                print('value return');
-                print(value);
-            animate1.value = false;
-            compressImagePath.value = "";
-            if (value['status'] == 'Error') {
-              dialogError(value['messages']);
-            } else {
-              dialogSuccess(value['messages'], () => Get.back());
-            }
-          });
+          animate2.value = false;
         }
+        dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
+      } else if (!onOfficeRadius) {
+        if (keyword == 'masuk') {
+          animate1.value = false;
+        } else {
+          animate2.value = false;
+        }
+        dialogError('Anda tidak berada di sekitar area kantor!');
+      } else if (isFakeLocation) {
+        if (keyword == 'masuk') {
+          animate1.value = false;
+        } else {
+          animate2.value = false;
+        }
+        dialogError('Anda Terdeteksi Menggunakan Fake Location!');
       } else {
-        animate1.value = false;
-        dialogError("Pilih Gambar terlebih dahulu!");
+        print('here');
+        await LemburProvider()
+            .presensi(
+          dataUser['nip'].toString(),
+          dataUser['access_token'].toString(),
+          id.value,
+          "${lat.value.toString()}, ${long.value.toString()}",
+          keyword,
+        )
+            .then((value) {
+          if (keyword == 'masuk') {
+          animate1.value = false;
+        } else {
+          animate2.value = false;
+        }
+          if (value['status'] == 'Error') {
+            dialogError(value['messages']);
+          } else {
+            dialogSuccess(value['messages'], () => Get.back());
+          }
+        });
       }
     } catch (e) {
-      animate1.value = false;
-      print(e);
-    }
-  }
-
-  void checkOut() async {
-    animate2.value = true;
-    try {
-      // await getImage(ImageSource.camera);
-      await moveCamera();
-
-      if (compressImagePath.value != "") {
-        final bytes = File(compressImagePath.value).readAsBytesSync();
-        String img64 = "data:image/png;base64,${base64Encode(bytes)}";
-
-        bool onOfficeRadius = await onRadiusDistance();
-        bool isFakeLocation = isMock.value; //await isFakeGPS();
-
-        if (double.parse(lokasiData['latitude']) == -7.688264 ||
-            double.parse(lokasiData['longitude']) == 112.273356) {
-          animate2.value = false;
-          dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
-        } else if (!onOfficeRadius) {
-          animate2.value = false;
-          dialogError('Anda tidak berada di sekitar area kantor!');
-        } else if (isFakeLocation) {
-          animate2.value = false;
-          dialogError('Anda Terdeteksi Menggunakan Fake Location!');
+      if (keyword == 'masuk') {
+          animate1.value = false;
         } else {
-          await PresensiProvider()
-              .postPresensiFree(
-            dataUser['nip'].toString(),
-            dataUser['access_token'].toString(),
-            "${lat.value.toString()}, ${long.value.toString()}",
-            img64.toString(),
-            "pulang",
-          )
-              .then((value) {
-            animate2.value = false;
-            compressImagePath.value = "";
-            if (value['status'] == 'Error') {
-              dialogError(value['messages']);
-            } else {
-              dialogSuccess(value['messages'], () => Get.back());
-            }
-          });
+          animate2.value = false;
         }
-      } else {
-        animate2.value = false;
-        dialogError("Pilih Gambar terlebih dahulu!");
-      }
-    } catch (e) {
-      animate2.value = false;
-      // dialogError("Sedang dalam perbaikan! ${e.toString()}");
       print(e);
     }
   }
@@ -229,14 +142,39 @@ class PresensiLemburController extends GetxController {
 
   void getLokasi() {
     try {
-      PresensiProvider()
+       PresensiProvider()
           .getLokasi(dataUser['access_token'], dataUser['nip'])
           .then((value) {
         final data = value.body;
         if (data != null) {
           lokasiData.value = data;
         } else {
-         }
+          dialogError('Data Lokasi Anda Tidak Ditemukan');
+        }
+      });
+      
+      LemburProvider()
+          .getHariIni(dataUser['access_token'], dataUser['nip'])
+          .then((value) {
+        final data = value.body;
+
+        DateTime datetimeMulai = DateTime.fromMillisecondsSinceEpoch(
+            data['data']['time_jam_mulai'] * 1000);
+        DateTime oneHourOld = datetimeMulai.subtract(const Duration(hours: 1));
+        int newTimestampOld = oneHourOld.millisecondsSinceEpoch ~/ 1000;
+
+        DateTime datetimeSelesai = DateTime.fromMillisecondsSinceEpoch(
+            data['data']['time_jam_selesai'] * 1000);
+        DateTime oneHourLater = datetimeSelesai.add(const Duration(hours: 1));
+        int newTimestampLater = oneHourLater.millisecondsSinceEpoch ~/ 1000;
+
+        final now = DateFormat('yyyy-MM-dd').format(DateTime.now());
+        if (data['data']['tanggal_ymd'] == now &&
+            DateTime.now().millisecondsSinceEpoch / 1000 > newTimestampOld &&
+            DateTime.now().millisecondsSinceEpoch / 1000 < newTimestampLater) {
+          id.value = data['data']['id'].toString();
+          lembur.value = true;
+        }
       });
     } catch (e) {
       print(e);

@@ -78,54 +78,72 @@ class PresensiLemburView extends GetView<PresensiLemburController> {
               child: Container(
                 margin: const EdgeInsets.only(top: 20),
                 child: Obx(
-                  () => Column(
-                    children: [
-                      Container(
-                        alignment: AlignmentDirectional.center,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                  () => controller.lembur.value == true
+                      ? Column(
                           children: [
-                            Text(
-                              "${controller.dateTime.value.hour.toString().padLeft(2, '0')}:${controller.dateTime.value.minute.toString().padLeft(2, '0')}:${controller.dateTime.value.second.toString().padLeft(2, '0')}",
-                              style: const TextStyle(
-                                fontSize: 50,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Tahoma',
-                                color: Colors.black,
+                            Container(
+                              alignment: AlignmentDirectional.center,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "${controller.dateTime.value.hour.toString().padLeft(2, '0')}:${controller.dateTime.value.minute.toString().padLeft(2, '0')}:${controller.dateTime.value.second.toString().padLeft(2, '0')}",
+                                    style: const TextStyle(
+                                      fontSize: 50,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Tahoma',
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  Text(
+                                    "${controller.dateTime.value.day.toString().padLeft(2, '0')} - ${controller.dateTime.value.month.toString().padLeft(2, '0')} - ${controller.dateTime.value.year.toString()}",
+                                    style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: 'Tahoma',
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            Text(
-                              "${controller.dateTime.value.day.toString().padLeft(2, '0')} - ${controller.dateTime.value.month.toString().padLeft(2, '0')} - ${controller.dateTime.value.year.toString()}",
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'Tahoma',
-                                color: Colors.black,
-                              ),
+                            const SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                ButtonCard(
+                                  press: () => controller.checkInOut('masuk'),
+                                  icon: Icons.location_history,
+                                  judul: "Check In Lembur",
+                                  animate: controller.animate1.value,
+                                ),
+                                ButtonCard(
+                                  press: () => controller.checkInOut('keluar'),
+                                  icon: Icons.wrong_location_rounded,
+                                  judul: "Check Out Lembur",
+                                  animate: controller.animate2.value,
+                                ),
+                              ],
                             ),
                           ],
+                        )
+                      : Center(
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            child: const Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: Text(
+                                'Waktu Lembur dibuka 1 Jam Sebelum Waktu Mulai dan ditutup 1 Jam Setelah Waktu Selesai',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ButtonCard(
-                            press: () => controller.checkIn(),
-                            icon: Icons.location_history,
-                            judul: "Check In Lembur",
-                            animate: controller.animate1.value,
-                          ),
-                          ButtonCard(
-                            press: () => controller.checkOut(),
-                            icon: Icons.wrong_location_rounded,
-                            judul: "Check Out Lembur",
-                            animate: controller.animate2.value,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
                 ),
               ),
             ),
