@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -40,11 +41,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var dataUser = GetStorage().read('dataUser');
+    var playerIdS = GetStorage().read('playerId');
 
     Future<void> initOneSignal() async {
-      await OneSignal.shared.setAppId("f704606c-6d70-4d3c-ac27-07bd10652d53");
+      await OneSignal.shared.setAppId("e286c21c-5f18-4464-bbc0-4a944b7ba371");
       final status = await OneSignal.shared.getDeviceState();
-      var playerId = status?.userId;
+
+      String? playerId = status!.userId;
+
+      OneSignal.shared.setSubscriptionObserver((OSSubscriptionStateChanges changes) {
+        String? userId = changes.to.userId ?? '';
+        if (userId != '') {
+          playerId = userId;
+          final box = GetStorage();
+          box.write('playerId', playerId);
+        }
+      });
+      
       final box = GetStorage();
       box.write('playerId', playerId);
 
@@ -61,15 +74,18 @@ class MyApp extends StatelessWidget {
 
       box.write('imei', imei);
 
-      await Future.delayed(const Duration(seconds: 1));
+      if(playerIdS == null){
+        await Future.delayed(const Duration(seconds: 10));
+      }else{
+        await Future.delayed(const Duration(seconds: 1));
+      }
     }
 
     // Dev Only
     // return GetMaterialApp(
     //   debugShowCheckedModeBanner: false,
     //   title: "JamKerja.ID",
-    //   initialRoute:
-    //       dataUser == null ? Routes.AUTH_LOGIN : Routes.NAVIGATION_BOTTOM,
+    //   initialRoute: Routes.SPLASH_SCREEN,
     //   getPages: AppPages.routes,
     // );
     return FutureBuilder(

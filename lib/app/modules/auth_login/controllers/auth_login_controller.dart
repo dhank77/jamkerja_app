@@ -78,7 +78,9 @@ class AuthLoginController extends GetxController {
 
   @override
   void onInit() {
+    print('playerId');
     print(playerId);
+    print('imei');
     print(imei);
     // email = TextEditingController();
     // password = TextEditingController();
