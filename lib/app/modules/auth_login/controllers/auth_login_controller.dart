@@ -66,10 +66,10 @@ class AuthLoginController extends GetxController {
 
   @override
   void onInit() {
-    // email = TextEditingController();
-    // password = TextEditingController();
-    email = TextEditingController(text: 'hocamu@mailinator.com');
-    password = TextEditingController(text: 'hocamu@mailinator.com');
+    email = TextEditingController();
+    password = TextEditingController();
+    // email = TextEditingController(text: 'hocamu@mailinator.com');
+    // password = TextEditingController(text: 'hocamu@mailinator.com');
     super.onInit();
   }
 

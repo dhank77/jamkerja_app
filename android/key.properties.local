@@ -1,0 +1,4 @@
+storePassword=!@#jamkerja$%^
+keyPassword=!@#jamkerja$%^
+keyAlias=jamkerjaid
+storeFile=../app/jamkerja.jks
