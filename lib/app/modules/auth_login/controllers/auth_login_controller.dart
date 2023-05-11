@@ -64,24 +64,8 @@ class AuthLoginController extends GetxController {
     }
   }
 
-  // Future<void> getImei() async {
-  //   var deviceInfo = DeviceInfoPlugin();
-  //   if (Platform.isIOS) {
-  //     var iosDeviceInfo = await deviceInfo.iosInfo;
-  //     imei.value = iosDeviceInfo.identifierForVendor.toString();
-  //   } else if (Platform.isAndroid) {
-  //     var androidDeviceInfo = await deviceInfo.androidInfo;
-  //     imei.value =
-  //         "${androidDeviceInfo.androidId}.${androidDeviceInfo.fingerprint}.${androidDeviceInfo.model}.${androidDeviceInfo.display}";
-  //   }
-  // }
-
   @override
   void onInit() {
-    print('playerId');
-    print(playerId);
-    print('imei');
-    print(imei);
     // email = TextEditingController();
     // password = TextEditingController();
     email = TextEditingController(text: 'hocamu@mailinator.com');

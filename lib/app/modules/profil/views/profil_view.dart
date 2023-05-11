@@ -27,24 +27,39 @@ class ProfilView extends GetView<ProfilController> {
                     color: Colors.white,
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: controller.dataUser['images'] != ""
-                                ? CachedNetworkImage(
-                                    imageUrl: controller.dataUser['images'],
-                                    placeholder: (context, url) =>
-                                        CircularProgressIndicator(
-                                      color: Colors.blue,
-                                    ),
-                                    errorWidget: (context, url, error) =>
-                                        Icon(Icons.error),
-                                    width: 100.0,
-                                    height: 100.0,
-                                    fit: BoxFit.cover,
-                                  )
-                                : Image.asset("assets/images/noimage.png"),
+                        GestureDetector(
+                          onTap: () => controller.getImage(),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(100),
+                                  child: controller.dataUser['images'] != ""
+                                      ? CachedNetworkImage(
+                                          imageUrl: controller.dataUser['images'],
+                                          placeholder: (context, url) =>
+                                              const CircularProgressIndicator(
+                                            color: Colors.blue,
+                                          ),
+                                          errorWidget: (context, url, error) =>
+                                              const Icon(Icons.error),
+                                          width: 100.0,
+                                          height: 100.0,
+                                          fit: BoxFit.cover,
+                                        )
+                                      : Image.asset("assets/images/noimage.png"),
+                                ),
+                                  const Positioned(
+                                bottom: 8,
+                                right: 3,
+                                child: Icon(
+                                  Icons.add_a_photo,
+                                  color: Colors.black87,
+                                ),
+                              ),
+                              ],
+                            ),
                           ),
                         ),
                         Padding(
@@ -98,11 +113,6 @@ class ProfilView extends GetView<ProfilController> {
                           child: SingleChildScrollView(
                             child: Column(
                               children: [
-                                // ListProfile(
-                                //   title: 'No. Pegawai',
-                                //   value: controller.dataUser['nip'],
-                                //   icon: Icons.card_membership_rounded,
-                                // ),
                                 ListProfile(
                                   title: 'No. Telepon',
                                   value:

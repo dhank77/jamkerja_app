@@ -28,6 +28,18 @@ class UserProvider extends GetConnect {
       'Authorization': "Bearer $accessToken",
     });
   }
+  Future<Response> updateFotoProfile(String nip, String accessToken, String image) {
+    final data = json.encode({
+      'nip': nip,
+      'image': image,
+    });
+    return post('${BASEAPI}updateFoto', data, headers: {
+      'Accept': 'application/json',
+      'Authorization': "Bearer $accessToken",
+    });
+  }
+
+  
 
   Future<Response> logout(String nip, String accessToken) {
     final data = json.encode({'nip': nip});
