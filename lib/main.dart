@@ -27,9 +27,16 @@ void main() async {
   HttpOverrides.global = MyHttpOverrides();
 
   OneSignal.shared.setLogLevel(OSLogLevel.verbose, OSLogLevel.none);
-  OneSignal.shared.setAppId("e286c21c-5f18-4464-bbc0-4a944b7ba371");
+  OneSignal.shared.setAppId("f704606c-6d70-4d3c-ac27-07bd10652d53");
   OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
     print("Accepted permission: $accepted");
+  });
+
+  OneSignal.shared
+      .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+    print('NOTIFICATION OPENED HANDLER CALLED WITH: ${result}');
+    print(
+        "Opened notification: \n${result.notification.jsonRepresentation().replaceAll("\\n", "\n")}");
   });
 
   runApp(const MyApp());
@@ -44,12 +51,13 @@ class MyApp extends StatelessWidget {
     var playerIdS = GetStorage().read('playerId');
 
     Future<void> initOneSignal() async {
-      await OneSignal.shared.setAppId("e286c21c-5f18-4464-bbc0-4a944b7ba371");
+      await OneSignal.shared.setAppId("f704606c-6d70-4d3c-ac27-07bd10652d53");
       final status = await OneSignal.shared.getDeviceState();
 
       String? playerId = status!.userId;
 
-      OneSignal.shared.setSubscriptionObserver((OSSubscriptionStateChanges changes) {
+      OneSignal.shared
+          .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
         String? userId = changes.to.userId ?? '';
         if (userId != '') {
           playerId = userId;
@@ -57,7 +65,7 @@ class MyApp extends StatelessWidget {
           box.write('playerId', playerId);
         }
       });
-      
+
       final box = GetStorage();
       box.write('playerId', playerId);
 
@@ -74,9 +82,9 @@ class MyApp extends StatelessWidget {
 
       box.write('imei', imei);
 
-      if(playerIdS == null){
+      if (playerIdS == null) {
         await Future.delayed(const Duration(seconds: 10));
-      }else{
+      } else {
         await Future.delayed(const Duration(seconds: 1));
       }
     }

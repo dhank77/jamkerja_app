@@ -95,12 +95,12 @@ class PresensiFreeController extends GetxController {
             double.parse(lokasiData['longitude']) == 112.273356) {
           animate1.value = false;
           dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
+        } else if (isFakeLocation) {
+          animate1.value = false;
+          dialogErrorBack('Anda Terdeteksi Menggunakan Fake Location!', () => Get.offAllNamed(Routes.NAVIGATION_BOTTOM));
         } else if (!onOfficeRadius) {
           animate1.value = false;
           dialogError('Anda tidak berada di sekitar area kantor!');
-        } else if (isFakeLocation) {
-          animate1.value = false;
-          dialogError('Anda Terdeteksi Menggunakan Fake Location!');
         } else {
           await PresensiProvider()
               .postPresensiFree(
@@ -111,8 +111,6 @@ class PresensiFreeController extends GetxController {
             "datang",
           )
               .then((value) {
-                print('value return');
-                print(value);
             animate1.value = false;
             compressImagePath.value = "";
             if (value['status'] == 'Error') {
@@ -128,7 +126,6 @@ class PresensiFreeController extends GetxController {
       }
     } catch (e) {
       animate1.value = false;
-      // dialogError("Sedang dalam perbaikan! ${e.toString()}");
       print(e);
     }
   }
@@ -136,7 +133,6 @@ class PresensiFreeController extends GetxController {
   void checkOut() async {
     animate2.value = true;
     try {
-      // await getImage(ImageSource.camera);
       await moveCamera();
 
       if (compressImagePath.value != "") {
@@ -150,12 +146,12 @@ class PresensiFreeController extends GetxController {
             double.parse(lokasiData['longitude']) == 112.273356) {
           animate2.value = false;
           dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
+        } else if (isFakeLocation) {
+          animate2.value = false;
+          dialogErrorBack('Anda Terdeteksi Menggunakan Fake Location!', () => Get.offAllNamed(Routes.NAVIGATION_BOTTOM));
         } else if (!onOfficeRadius) {
           animate2.value = false;
           dialogError('Anda tidak berada di sekitar area kantor!');
-        } else if (isFakeLocation) {
-          animate2.value = false;
-          dialogError('Anda Terdeteksi Menggunakan Fake Location!');
         } else {
           await PresensiProvider()
               .postPresensiFree(
@@ -181,7 +177,6 @@ class PresensiFreeController extends GetxController {
       }
     } catch (e) {
       animate2.value = false;
-      // dialogError("Sedang dalam perbaikan! ${e.toString()}");
       print(e);
     }
   }
@@ -196,12 +191,12 @@ class PresensiFreeController extends GetxController {
           double.parse(lokasiData['longitude']) == 112.273356) {
         animate3.value = false;
         dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
+      } else if (isFakeLocation) {
+        animate3.value = false;
+        dialogErrorBack('Anda Terdeteksi Menggunakan Fake Location!', () => Get.offAllNamed(Routes.NAVIGATION_BOTTOM));
       } else if (!onOfficeRadius) {
         animate3.value = false;
         dialogError('Anda tidak berada di sekitar area kantor!');
-      } else if (isFakeLocation) {
-        animate3.value = false;
-        dialogError('Anda Terdeteksi Menggunakan Fake Location!');
       } else {
         await PresensiProvider()
             .postPresensiFree(
@@ -238,12 +233,12 @@ class PresensiFreeController extends GetxController {
           double.parse(lokasiData['longitude']) == 112.273356) {
         animate4.value = false;
         dialogError('Silahkan Sesuaikan Lokasi Anda Terlebih dahulu!');
+      } else if (isFakeLocation) {
+        animate4.value = false;
+        dialogErrorBack('Anda Terdeteksi Menggunakan Fake Location!', () => Get.offAllNamed(Routes.NAVIGATION_BOTTOM));
       } else if (!onOfficeRadius) {
         animate4.value = false;
         dialogError('Anda tidak berada di sekitar area kantor!');
-      } else if (isFakeLocation) {
-        animate4.value = false;
-        dialogError('Anda Terdeteksi Menggunakan Fake Location!');
       } else {
         await PresensiProvider()
             .postPresensiFree(
@@ -265,7 +260,6 @@ class PresensiFreeController extends GetxController {
       }
     } catch (e) {
       animate4.value = false;
-      //dialogError("Sedang dalam perbaikan! ${e.toString()}");
       print(e);
     }
   }
@@ -275,7 +269,6 @@ class PresensiFreeController extends GetxController {
 
     bool serviceEnabled;
     loc.PermissionStatus permissionGranted;
-    loc.LocationData locationData;
 
     serviceEnabled = await location.serviceEnabled();
     if (!serviceEnabled) {
@@ -293,11 +286,11 @@ class PresensiFreeController extends GetxController {
       }
     }
 
-    locationData = await location.getLocation();
-    lat.value = locationData.latitude!;
-    long.value = locationData.longitude!;
+    // isFakeGPS();
+    // locationData = await location.getLocation();
+    // lat.value = locationData.latitude!;
+    // long.value = locationData.longitude!;
 
-    goToCoord();
   }
 
   Future<void> goToCoord() async {
@@ -348,10 +341,15 @@ class PresensiFreeController extends GetxController {
   }
 
   final isMock = false.obs;
-  void isFakeGPS() {
+  Future<void> isFakeGPS() async {
     try {
+
+      TrustLocation.start(5);
       TrustLocation.onChange.listen((values) {
+        lat.value = double.parse(values.latitude.toString());
+        long.value = double.parse(values.longitude.toString());
         isMock.value = values.isMockLocation!;
+        goToCoord();
       });
     } catch (e) {
       print(e);
@@ -379,5 +377,7 @@ class PresensiFreeController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+    TrustLocation.stop();
+
   }
 }

@@ -20,6 +20,24 @@ void dialogError(String msg) {
   );
 }
 
+void dialogErrorBack(String msg, Function() fnc) {
+  Get.defaultDialog(
+   title: 'Terjadi Kesalahan',
+    titleStyle: TextStyle(
+      color: Colors.red[700],
+      fontWeight: FontWeight.bold,
+    ),
+    middleText: msg,
+    contentPadding: EdgeInsets.symmetric(horizontal: 13),
+    cancel: ElevatedButton(
+      onPressed: fnc,
+      child: Text('OK'),
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Color(0xFF388E3C)),
+      ),
+    ),
+  );
+}
 void dialogSuccess(String msg, Function() fnc) {
   Get.defaultDialog(
     title: 'Berhasil!',
